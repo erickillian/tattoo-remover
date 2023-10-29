@@ -36,11 +36,11 @@ Easily remove tattoos from images of people using AI!
     pip install -r requirements.txt
     ```
 
-5. Download model weights (.safetensor) available on Huggingface
+5. Download trained model weights from (.safetensor) available on my huggingface account 
     
     available at [https://huggingface.co/erickillian/tattoo-removal](https://huggingface.co/erickillian/tattoo-removal/tree/main)
 
-    please add model weights into directory
+    And add model weights into directory
 
 6. Add tattoo photos to test_inputs directory
 
