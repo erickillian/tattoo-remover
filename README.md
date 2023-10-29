@@ -68,8 +68,8 @@ Then run every cell in sequential order.  Replace url in cell 7 with desired ima
 ## Limitations
 
  - Limited Training Data / dataset diversity
- - Model size (current UNet model has 124,386,371 parameters)
- - 
+ - Model size (the current UNet model has 124,386,371 parameters which could in fact be too many for the amount of data available)
+ - Loss function (Finding an accurate loss function is a large challenge for this model and could definitely be improved)
 
 ## Contribute
 
