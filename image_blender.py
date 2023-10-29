@@ -1,17 +1,40 @@
 from PIL import Image
+from math import sqrt, ceil
 import os
 
-def side_by_side_concatenation(images):
-    total_width = sum(img.width for img in images)
-    max_height = max(img.height for img in images)
+def square_like_concatenation(images):
+    # Determine number of rows and columns for a square-like layout
+    num_images = len(images)
+    num_cols = ceil(sqrt(num_images))
+    num_rows = ceil(num_images / num_cols)
     
-    combined = Image.new('RGB', (total_width, max_height))
-    
-    x_offset = 0
-    for img in images:
-        combined.paste(img, (x_offset, 0))
-        x_offset += img.width
+    # Determine dimensions of the final concatenated image
+    max_width_per_col = [0] * num_cols
+    max_height_per_row = [0] * num_rows
+
+    for idx, img in enumerate(images):
+        row = idx // num_cols
+        col = idx % num_cols
+        max_width_per_col[col] = max(max_width_per_col[col], img.width)
+        max_height_per_row[row] = max(max_height_per_row[row], img.height)
+
+    total_width = sum(max_width_per_col)
+    total_height = sum(max_height_per_row)
+    combined = Image.new('RGB', (total_width, total_height))
+
+    # Paste each image at its determined position
+    x_offset, y_offset = 0, 0
+    for idx, img in enumerate(images):
+        row = idx // num_cols
+        col = idx % num_cols
+        combined.paste(img, (x_offset, y_offset))
         
+        # Move offsets
+        x_offset += max_width_per_col[col]
+        if (idx + 1) % num_cols == 0:
+            x_offset = 0
+            y_offset += max_height_per_row[row]
+
     return combined
 
 def image_transition(img1, img2, steps=10):
@@ -50,8 +73,8 @@ def main(dir1, dir2, output_file):
         print("The directories must have the same number of images and at least one image.")
         return
 
-    concatenated1 = side_by_side_concatenation(images1)
-    concatenated2 = side_by_side_concatenation(images2)
+    concatenated1 = square_like_concatenation(images1)
+    concatenated2 = square_like_concatenation(images2)
 
     all_frames = image_transition(concatenated1, concatenated2)
     
