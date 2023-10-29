@@ -6,8 +6,9 @@ from torchvision import transforms
 from torchvision.utils import save_image
 from safetensors.torch import load_model
 
-transforms = transforms.Compose(
+image_transforms = transforms.Compose(
     [
+        transforms.Resize(512),
         transforms.CenterCrop(512),
         transforms.ToTensor()
     ]
