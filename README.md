@@ -2,7 +2,7 @@
 
 Easily remove tattoos from images of people using AI!
 
-![Before and After](./animations/transition.gif)
+![Before and After](./animations/animation.gif)
 
 ## Features
 
