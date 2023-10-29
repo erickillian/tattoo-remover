@@ -39,3 +39,34 @@ Easily remove tattoos from images of people using AI!
 5. Download model weights (.safetensor) available on Huggingface
     
     available at [https://huggingface.co/erickillian/tattoo-removal](https://huggingface.co/erickillian/tattoo-removal/tree/main)
+
+    please add model weights into directory
+
+6. Add tattoo photos to test_inputs directory
+
+
+## Usage
+
+1. Run model on directory
+
+    ```bash
+    python3 run.py
+    ```
+
+2. Run image_blender.py to get animated transition between image pairs
+
+    ```bash
+    python3 image_blender.py
+    ```
+
+## Contribute
+
+Currently the training data and process will remain closed source, however if there is enough interest that could change.
+
+If you are interested in this project and would like to contribute please reach out!  **Email:** [erickill@usc.edu](mailto:erickill@usc.edu)
+
+
+## License
+
+[MIT](LICENSE.txt)
+
