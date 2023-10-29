@@ -10,7 +10,7 @@ image_transforms = transforms.Compose(
     [
         transforms.Resize(512),
         transforms.CenterCrop(512),
-        transforms.ToTensor()
+        transforms.ToTensor(),
     ]
 )
 
@@ -33,7 +33,7 @@ for img_file in os.listdir(input_dir):
         image_path = os.path.join(input_dir, img_file)
         full_path = os.path.join(os.getcwd(), image_path)
         image = Image.open(full_path)
-        input = transforms(image)
+        input = image_transforms(image)
         input = torch.unsqueeze(input, 0)
 
         # Forward the image through the model
