@@ -61,7 +61,7 @@ Easily remove tattoos from images of people using AI!
 
 ## Colab Integration
 
-[<img src="https://colab.research.google.com/assets/colab-badge.svg" align="center">](https://colab.research.google.com/github/erickillian/tattoo-remover/blob/main/run_colab.ipynb)
+[<img src="https://colab.research.google.com/assets/colab-badge.svg" align="center">](https://colab.research.google.com/github/erickillian/tattoo-remover/blob/main/colab_integration.ipynb)
 
 ## Contribute
 
