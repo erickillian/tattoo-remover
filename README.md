@@ -71,9 +71,13 @@ Then run every cell in sequential order.  Replace url in cell 7 with desired ima
  - Model size (the current UNet model has 124,386,371 parameters which could in fact be too many for the amount of data available)
  - Loss function (Finding an accurate loss function is a large challenge for this model and could definitely be improved)
 
-## Contribute
+## Dataset Generation
 
-Currently the training data and process will remain closed source, however if there is enough interest that could change.
+![Data Generation](./assets/dataset-generation.png)
+
+To generate data for this project a synthetic data approach was used.  Tattoo patterns were overlaid over a subject and then sequentially multiplied onto the subject as layers.  To remove excess tattoo parts background removal was used to remove any background reminants from the image.  The background was then re-added into the image to create an one-to-one tattoo / no tattoo image pair.  To make the overlays more realistic color changing techniques were used.  This was one of the processes used to generate high quality image pairs for this project.
+
+## Contribute
 
 If you are interested in this project and would like to contribute please reach out!  **Email:** [erickill@usc.edu](mailto:erickill@usc.edu)
 
