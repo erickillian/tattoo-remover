@@ -66,8 +66,8 @@ def main(dir1, dir2, output_file):
     image_filenames2 = sorted([img for img in os.listdir(dir2) if img.endswith(('.png', '.jpg', '.jpeg'))])
 
     # Load the sorted images
-    images1 = [Image.open(f"{dir1}/{img}") for img in image_filenames1]
-    images2 = [Image.open(f"{dir2}/{img}") for img in image_filenames2]
+    images1 = [Image.open(f"{dir1}/{img}").resize((512,512)) for img in image_filenames1]
+    images2 = [Image.open(f"{dir2}/{img}").resize((512,512)) for img in image_filenames2]
 
     if len(images1) != len(images2) or len(images1) == 0:
         print("The directories must have the same number of images and at least one image.")
